@@ -1,5 +1,45 @@
 <ion-view view-title="List">
+  
+<ion-nav-bar class="bar bar-balanced">
+       <ion-nav-buttons>
+        <button side="left" class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+  </ion-nav-bar>
+ 
   <ion-content>
-    <h1>List</h1>
+    <div style="display: inline-block">
+      <button class="button button-clear button-balanced" ng-click="show($event)">Sorted by {{propertyName}}</button>
+    </div>
+    <ion-list>
+      <ion-item  ng-repeat="wrestler in wrestlers | orderBy:propertyName:reverse" class="item-avatar" >
+        <img ng-src="{{wrestler.image}}"/>
+        <h2>{{wrestler.name}}</h2>
+        <p>Height: {{wrestler.footHeight}}'{{wrestler.inHeight}}"</p>
+        <p>Weight: {{wrestler.weight}} pounds</p>
+      </ion-item> 
+    </ion-list>
   </ion-content>
+
+  <!--script for sort popup window -->
+  <script id="sort.html" type="text/ng-template">
+    <ion-popover-view>
+        <ion-header-bar class="bar bar-clear bar-balanced">
+            <h1 class="title">Sort</h1>
+        </ion-header-bar>
+
+        <ion-content class="container">
+          <div class="sort">
+            <button ng-click="sortBy('name')" class="button button-balanced ">Sort by Name</button>
+          </div>
+          <div class="sort">
+            <button ng-click="sortBy('Height')" class="button button-balanced ">Sort by Height</button>
+          </div>
+          <div class="sort">
+            <button ng-click="sortBy('weight')" class="button button-balanced">Sort by weight</button>
+          </div>
+         
+        </ion-content>
+    </ion-popover-view>
+  </script>
 </ion-view>
+

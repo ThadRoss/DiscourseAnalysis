@@ -6300,7 +6300,7 @@ button.item.item-button-right {
 .item-avatar .item-content,
 .item-avatar-left,
 .item-avatar-left .item-content {
-  padding-left: 72px;
+  padding-left: 90px;
   min-height: 72px; }
   .item-avatar > img:first-child,
   .item-avatar .item-image,
@@ -6313,8 +6313,8 @@ button.item.item-button-right {
     position: absolute;
     top: 16px;
     left: 16px;
-    max-width: 40px;
-    max-height: 40px;
+    max-width: 60px;
+    max-height: 60px;
     width: 100%;
     height: 100%;
     border-radius: 50%; }
@@ -6348,8 +6348,8 @@ button.item.item-button-right {
     position: absolute;
     top: 10px;
     left: 10px;
-    max-width: 80px;
-    max-height: 80px;
+    max-width: 40px;
+    max-height: 40px;
     width: 100%;
     height: 100%; }
 

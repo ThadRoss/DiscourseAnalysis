@@ -15,7 +15,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
-    if (window.StatusBar) {
+    if (window.StatusBar) { 
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
@@ -31,53 +31,43 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  })
   
   .state('app.list', {
     url: '/list',
     views: {
-      'menucontent': {
+      'menuContent': {
         templateUrl: 'templates/list.html',
         controller: 'ListCtrl'
       }
     }
+  })
+  
+   .state('app.media', {
+    url: '/media',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/media.html'
+      }
+    }
+  })
+
+   .state('app.interactivity', {
+    url: '/interactivity',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/interactivity.html'
+      }
+    }
+  })
+
+   .state('app.demo', {
+    url: '/demo',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/demo.html'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/list');
 });

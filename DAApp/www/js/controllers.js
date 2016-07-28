@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPopover) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -38,23 +38,75 @@ angular.module('starter.controllers', [])
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
+
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-
-.controller('ListCtrl', function($scope) {
+.controller('ListCtrl', function($scope, $ionicPopover) {
   
+  $scope.wrestlers = [
+    {
+      "name": "AJ Style",
+      "Height": "178",
+      "footHeight": "5",
+      "inHeight": "10",
+      "weight": "216",
+      "image": "http://www.cagematch.net/site/main/img/workers/00000801_2016_AJ%20Styles_WWE.jpg"
+    },
+    {  
+      "name": "Brian Cage",
+      "Height": "183",
+      "footHeight": "6",
+      "inHeight": "0",
+      "weight": "289",
+      "image": "http://www.cagematch.net/site/main/img/workers/00004823_2016_Brian%20Cage_Independent.jpg"
+    }, 
+    {
+      "name": "Io Shirai",
+      "Height": "156",
+      "footHeight": "5",
+      "inHeight": "1",
+      "weight": "117",
+      "image": "http://www.cagematch.net/site/main/img/workers/00009555_2015_Io%20Shirai_Stardom.jpg"
+    },
+    {
+      "name": "Kazuchika Okada",
+      "Height": "191",
+      "footHeight": "6",
+      "inHeight": "3",
+      "weight": "235",
+      "image": "http://www.cagematch.net/site/main/img/workers/00004324_2016_Kazuchika%20Okada_ROH.jpg"
+    }, 
+    {
+      "name": "Pentagon Jr",
+      "Height": "180",
+      "footHeight": "5",
+      "inHeight": "11",
+      "weight": "207",
+      "image": "http://www.cagematch.net/site/main/img/workers/00010334_2016_Pentagon%20Jr._AAA.jpg"
+    }
+  ];
+
+
+    //creates a popup window for sorting list
+   $ionicPopover.fromTemplateUrl('sort.html', {
+      scope: $scope
+    }).then(function(popover) {
+      $scope.popover = popover;
+    }); 
+
+  //show popup window
+  $scope.show = function($event) {
+    $scope.popover.show($event);
+  };
+
+  $scope.propertyName = 'name';
+  $scope.reverse= false;
+
+  $scope.sortBy = function(propertyName){
+    $scope.reverse = ($scope.propertyName == propertyName)
+    ? !$scope.reverse : false;
+    $scope.propertyName = propertyName;
+  };
 });
