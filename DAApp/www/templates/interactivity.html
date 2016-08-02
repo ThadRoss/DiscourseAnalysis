@@ -6,6 +6,32 @@
       </ion-nav-buttons>
   </ion-nav-bar>
   <ion-content>
-    <h1>Interactivity and shit</h1>
-  </ion-content>
+    <ion-item class="item-avatar">
+      <img ng-src="{{person.pic}}"/>
+      <h2>{{person.name}}</h2>
+      <p>{{person.major}}</p>   
+      <p>Age: {{person.age}}</p>
+    </ion-item>
+    <div>
+      Enter Name:
+      <input type="text" ng-model="person.name"/>
+      <hr/>
+    </div>
+    <div>
+      Enter Major:
+      <input type="text" ng-model="person.major"/>
+      <hr/>
+    </div>
+    <div>
+      Enter Age:
+      <input type="text" ng-model="person.age"/>
+      <hr/>
+    </div>
+   <!-- <div class="dropzone" file-dropzone="[image/png, image/jpeg, image/gif]"
+    file="image" file-name="imageFileName" data-max-file-size="3">
+      <span style="font-size: 20px;">Drag and drop profile image here</span>
+
+    </div>-->
+   </ion-content>
 </ion-view>
+ 

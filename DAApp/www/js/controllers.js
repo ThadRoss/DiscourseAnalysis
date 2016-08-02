@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic', 'starter.directives'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPopover) {
 
@@ -41,6 +41,77 @@ angular.module('starter.controllers', [])
 
   };
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.controller('DemoCtrl', function($scope){
+
+
+
+  var replaceImg = "img/puppy.jpg";
+
+
+//switchImg function
+  $scope.switchImg = function(){
+    var switchImg = document.getElementById("myImage").src;
+
+    document.getElementById("myImage").src = replaceImg;
+    replaceImg = switchImg;
+  };
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.controller('IntCtrl', function($scope){
+  $scope.person = {
+    "pic":"img/koala.jpg",
+    "name" : "Thadeus Ross",
+    "major": "Computer Science",
+    "age": "20"
+  };
+
+  $scope.image = null;
+  $scope.imagFileName = '';
+  $scope.uploadme = {};
+  $scope.uploadme.src = '';
+})
+
+
+
 
 
 .controller('ListCtrl', function($scope, $ionicPopover) {
@@ -101,9 +172,11 @@ angular.module('starter.controllers', [])
     $scope.popover.show($event);
   };
 
+//default variables for sorting
   $scope.propertyName = 'name';
   $scope.reverse= false;
 
+//sortby function called by sort buttons
   $scope.sortBy = function(propertyName){
     $scope.reverse = ($scope.propertyName == propertyName)
     ? !$scope.reverse : false;

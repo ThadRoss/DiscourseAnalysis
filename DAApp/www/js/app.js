@@ -55,7 +55,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/interactivity',
     views: {
       'menuContent': {
-        templateUrl: 'templates/interactivity.html'
+        templateUrl: 'templates/interactivity.html',
+        controller: 'IntCtrl'
       }
     }
   })
@@ -64,7 +65,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/demo',
     views: {
       'menuContent': {
-        templateUrl: 'templates/demo.html'
+        templateUrl: 'templates/demo.html',
+        controller: 'DemoCtrl'
       }
     }
   });
